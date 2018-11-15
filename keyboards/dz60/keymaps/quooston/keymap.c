@@ -24,9 +24,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |-----------------------------------------------------------|
    * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|  \  |
    * |-----------------------------------------------------------|
-   * |CAPS/MO|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Return |
+   * |MO1|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Return |
    * |-----------------------------------------------------------|
-   * |( or Shift |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /| ) or Shift |
+   * | Shift |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /| Shift |
    * |-----------------------------------------------------------|
    * |Ctrl|Gui |Alt |      Space            |Alt |Gui |MO2 |Ctrl |
    * `-----------------------------------------------------------'
@@ -35,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LAYOUT(
       F(0), KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_MINS, KC_EQL , XXXXXXX, KC_BSPC,
       KC_TAB ,          KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_LBRC, KC_RBRC, KC_BSLS,
-      LT(MO(1), KC_CAPS),KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,          KC_ENT ,
-      KC_LSPO, XXXXXXX, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSPC,          XXXXXXX,
+      MO(1),KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,          KC_ENT ,
+      KC_LSFT, XXXXXXX, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT,          XXXXXXX,
       KC_LCTL,          KC_LGUI, KC_LALT, KC_SPC ,          KC_SPC ,          KC_SPC , KC_RALT, KC_RGUI, XXXXXXX, MO(2)  ,          KC_RCTL),
 
 
@@ -56,9 +56,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   LAYOUT(
       KC_GRV , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 , _______, KC_DEL ,
-      _______,          KC_HOME,  KC_UP,  KC_END, KC_PGUP, _______, _______, _______, _______, _______, _______,_______, _______, _______,
-      _______,          KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, _______, _______ , _______, _______, _______,          _______,
-      KC_LSPO, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______, _______, KC_RSPC,          XXXXXXX,
+      _______,          KC_HOME,  KC_UP,  KC_END, KC_PGUP, _______, _______, KC_MS_BTN1, KC_MS_UP, KC_MS_BTN2, _______,_______, _______, _______,
+      _______,          KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, KC_MS_LEFT, KC_MS_DOWN , KC_MS_RIGHT, _______, _______,          _______,
+      KC_LSFT, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______, _______, KC_RSFT,          XXXXXXX,
       KC_LCTL,          _______, _______, _______,          _______,          _______, _______, _______, _______, _______,          KC_RCTL),
 
 
@@ -66,21 +66,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    /* Keymap : Third Layer (RGB / Reset)
    * MUSIC MODE! https://docs.qmk.fm/features/audio
 	* ,-----------------------------------------------------------------------------------------.
-	* | ` | L1  | L2  | L3  | L4  | L5  | L6  | L7  | L8  | L9  | L10 | L11 | L12 |   Sleep     |
+	* | ` | L1  | L2  | L3  | L4  | L5  | L6  | L7  | L8  | L9  | L10 | L11 | L12 |            |
 	* |-----------------------------------------------------------------------------------------+
-	* |       |     |     |      |      |     |     |     |     |     |     |     |     | RESET |
+	* |       |     |     |      |      |     |     |     |     |     |     |     |     |       |
 	* |-----------------------------------------------------------------------------------------+
 	* |         |     |     |      |      |     |     |     |   | Prev | Play | Next  |         |
 	* |-----------------------------------------------------------------------------------------+
-	* |           |     |     |   |   |   | MU_MOD | MU_TOG | Vol-  | Vol+  |  Mute   |         |
+	* |           |     |     |    |    |      |     |      | Vol-  | Vol+  |  Mute   |         |
 	* |-----------------------------------------------------------------------------------------+
 	* |      |      |      |                                     |      |     |     |     |     |
 	* `-----------------------------------------------------------------------------------------'
 	*/  LAYOUT(
-      KC_GRV , M(1), M(2), M(3), M(4), M(5), M(6), M(7), M(8), M(9), M(10), M(11), M(12), _______, KC_SLEP,
-      _______,          RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, _______, _______, _______, _______, RESET  ,
+      KC_GRV , M(1), M(2), M(3), M(4), M(5), M(6), M(7), M(8), M(9), M(10), M(11), M(12), _______, _______,
+      _______,          RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, _______, _______, _______, _______, _______  ,
       _______,          RGB_STA, RGB_BRE, RGB_RAI, RGB_SWI, RGB_SNA, RGB_KNI, RGB_GRA, _______, KC_MPRV, KC_MPLY, KC_MNXT,          _______,
-      _______, _______, BL_DEC , BL_TOGG, BL_INC , BL_STEP, _______, _______, MU_MOD, MU_TOG, KC_VOLD, KC_VOLU, KC_MUTE,          _______,
+      _______, _______, BL_DEC , BL_TOGG, BL_INC , BL_STEP, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______,          _______,
       _______,          _______, _______, _______,          _______,          _______, _______, _______, _______, _______,          _______),
 
 };
