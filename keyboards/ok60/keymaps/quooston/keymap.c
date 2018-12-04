@@ -1,4 +1,4 @@
-//I borrowed from atlacat...
+// Keycodes: https://docs.qmk.fm/#/keycodes
 
 #include "ok60.h"
 
@@ -14,6 +14,8 @@
 #define RGB_SNA RGB_M_SN //rgb snake
 #define RGB_KNI RGB_M_K //rgb knight
 #define RGB_GRA RGB_M_G //rgb gradient
+#define RGB_XMAS RGB_M_X //rgb xmas
+
 
 enum custom_keycodes {
   E_PI = SAFE_RANGE
@@ -85,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KEYMAP_ANSI(
       KC_GRV , M(1), M(2), M(3), M(4), M(5), M(6), M(7), M(8), M(9), M(10), M(11), M(12), _______,
       _______, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, _______, E_PI, _______, _______, _______,
-      _______, RGB_STA, RGB_BRE, RGB_RAI, RGB_SWI, RGB_SNA, RGB_KNI, RGB_GRA, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
+      _______, RGB_STA, RGB_BRE, RGB_RAI, RGB_SWI, RGB_SNA, RGB_KNI, RGB_GRA, RGB_XMAS, KC_MPRV, KC_MPLY, KC_MNXT, _______,
       _______, _______, BL_DEC , BL_TOGG, BL_INC , BL_STEP, _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______,
       _______, _______, _______, _______, _______, _______, _______, _______),
 
